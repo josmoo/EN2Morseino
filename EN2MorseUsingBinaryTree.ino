@@ -50,7 +50,6 @@ bool Node::translate(char searchee){
       digitalWrite(LED_BUILTIN, HIGH);
       delay(333); //1 unit delay
       digitalWrite(LED_BUILTIN, LOW);
-      delay(333);
       return true;
     }
   }
@@ -59,7 +58,6 @@ bool Node::translate(char searchee){
       digitalWrite(LED_BUILTIN, HIGH);
       delay(1000);//3 unit delay
       digitalWrite(LED_BUILTIN, LOW);
-      delay(333);
       return true;
      }
   }
