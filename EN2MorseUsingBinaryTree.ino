@@ -1,4 +1,3 @@
-
 //each node will be part of a binary tree
 class Node {
 public:
@@ -14,19 +13,6 @@ public:
 private:
   char val;  
 };
-
-/*setup traversal:
-*
- * 1: check root
- * 2: add root's children to stack
- * 3: is stack empty?
- * 4: if it's not, go to top of stack
- * 5: check
- * 6: add children
- * 7: is empty?
- * 
- * */
-
 
 // the setup function runs once when you press reset or power the board
 int incomingByte = 0; // for incoming serial data
@@ -44,8 +30,11 @@ void loop() {
   if (Serial.available() > 0) {
     // read the incoming byte:
     incomingByte = Serial.read();
+    if(incomingByte == ' '){
+      delay(2333);//morse code requires 7 unit delay inbetween words
+    }
     root->translate(incomingByte);
-    delay(1000);
+    delay(1000); //and a 3 unit delay inbetween letters
   }
 }
 
@@ -59,7 +48,7 @@ bool Node::translate(char searchee){
   if(left != NULL){
     if(left->translate(searchee)){
       digitalWrite(LED_BUILTIN, HIGH);
-      delay(333);
+      delay(333); //1 unit delay
       digitalWrite(LED_BUILTIN, LOW);
       delay(333);
       return true;
@@ -68,7 +57,7 @@ bool Node::translate(char searchee){
   if(right != NULL){
     if(right->translate(searchee)){ 
       digitalWrite(LED_BUILTIN, HIGH);
-      delay(1000);
+      delay(1000);//3 unit delay
       digitalWrite(LED_BUILTIN, LOW);
       delay(333);
       return true;
