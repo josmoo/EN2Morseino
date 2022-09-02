@@ -31,10 +31,10 @@ void loop() {
     // read the incoming byte:
     incomingByte = Serial.read();
     if(incomingByte == ' '){
-      delay(2333);//morse code requires 7 unit delay inbetween words
+      delay(2000);//morse code requires 7 unit delay inbetween words- (6 units + 1 that's after every letter no matter what)
     }
     root->translate(incomingByte);
-    delay(1000); //and a 3 unit delay inbetween letters
+    delay(666); //and a 3 unit delay inbetween letters
   }
 }
 
@@ -50,7 +50,7 @@ bool Node::translate(char searchee){
       digitalWrite(LED_BUILTIN, HIGH);
       delay(333); //1 unit delay
       digitalWrite(LED_BUILTIN, LOW);
-      delay(333)
+      delay(333);
       return true;
     }
   }
@@ -59,7 +59,7 @@ bool Node::translate(char searchee){
       digitalWrite(LED_BUILTIN, HIGH);
       delay(1000);//3 unit delay
       digitalWrite(LED_BUILTIN, LOW);
-      delay(333)
+      delay(333);
       return true;
      }
   }
